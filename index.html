@@ -1,45 +1,140 @@
 <!DOCTYPE html>
+
 <html>
   <head>
-	 <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,100' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,100' rel='stylesheet' type='text/css'>
 	<link href="style.css" type="text/css" rel="stylesheet">
-	<script src="jscript.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>	
+	<script type="text/javascript">
+		$(function() {
+			$(window).scroll(function() {
+				if ($(this).scrollTop() > 650)  {          /* ­n·Æ°Ê¨ì¿ï³æªº¶ZÂ÷ */
+				$('.nav').addClass('navFixed');   /* À°¿ï³æ¥[¤W©T©w®ÄªG */
+				} else {
+				$('.nav').removeClass('navFixed'); /* ²¾°£¿ï³æ©T©w®ÄªG */
+				}
+			});
+		});
+		
+	</script>
+	
+	<script>
+        $(document).ready(function(){
+            for(i=0;i<3;i++){
+                $("#menu img:eq("+i+")").click({id:i},function(e){
+                    n=e.data.id
+                    change()
+                    clearInterval(clock)
+                    clock=setInterval(auto,3500)
+                })
+            }
+            n=0
+            clock=setInterval(auto,3500)
+            $("#products img").mouseover(function(){
+                clearInterval(clock)
+            })
+            $("#products img").mouseout(function(){
+                clock=setInterval(auto,3500)
+            })
+            function auto(){
+                n++
+                if(n>2){
+                    n=0
+                }
+                change()
+            }
+            function change(){
+                $("#products img").fadeOut(400,function(){
+                    $("#products img").attr("src","images/header_"+n+".png")
+                    $("#products img").fadeIn()
+                })
+                $("#products").css("background-image","url(images/images/header_"+n+".png)")
+                $("#menu img").attr("src","images/point_white.png")
+                $("#menu img:eq("+n+")").attr("src","images/point_gray.png")
+            }
+        })
+    </script>
+	
   </head>
-  
   <body>
-    <div class="header">
+	
+	
+	<div id=all>
+		<div id=products><img src="images/header_0.png" width=100% ></div>
+		
+	</div>
+	<!--
+	<div class="header">
       <div class="container">
-		<div class="title">
-			<h1>ACC 19</h1>
-		</div>
-		<div class="title" style="position:relative; top:150px;">
-			<a class="btn" href="#">See More</a>
-		</div>
       </div>
     </div>
-
+	-->
     <div class="nav">
       <div class="container">
         <ul>
-          <li><a href="index.html">å“¡å·¥ç°¡ä»‹</a></li><li><a href="index_photo.html">å“¡å·¥æ—…éŠè¡Œç¨‹</a></li><li><a href="index_talk.html">å…¬å¸é™£å®¹</a></li>
+          <li><a href="index.html">­û¤uÂ²¤¶</a></li><li><a href="index_photo.html">­û¤u®È¹C¦æµ{</a></li><li><a href="index_talk.html">¤½¥q°}®e</a></li>
         </ul>
       </div>
     </div>
-
+	
+	<div><div id=menu style="width:50%"><img src="images/point_gray.png"><img src="images/point_white.png"><img src="images/point_white.png"></div>
+	
     <div class="main">
       <div class="container">
-		
-        <img id="bighead" src="images/head.jpg" height="150"width="150">
-		<h2>å…¬å¸è·å“¡ç°¡ä»‹</h2>
-        <p>å§“å:é™³ç¥ˆç‘‹</p>
-        <p>è·ç¨±:å¸åº«å°éšŠé•·</p>
-        <p>ç‰¹æ®Šè¡¨ç¾:è…³è‡­ç¸¾å„ªå“¡å·¥</p>
+		<h2><strong>¤½¥qÂ¾­ûÂ²¤¶</strong></h2>
+        <img id="bighead" src="images/head.png" height="600"width="600">
+        <p><strong>©m¦W :</strong> ¤ı¦t¯è</p>
+        <p><strong>Â¾ºÙ :</strong> ¬¡°ÊªÑªø¡B°Æ¤j¶¤ªø¡B¤j¶¤ªø¡B2017ªü¨½ÀçÁ`¥l¡B2018­ì¤å°²¤éÀçÀçªø</p>
+		<p><strong>¤JªÀ¦~¥÷ :</strong> 2015-2017 
+        <p><strong>¯S®íªí²{ :</strong> ­ì¤åªÀ¥´¶}¥]¸Ë³Ğ©lªÌ¡B³Ê»h»i´_¨|¤u§@ªÌ¡BªEÀY¥~Â½¦¨ÀtÀY¡B©Ê±Ğ¨|±À¼sªÌ</p>
       </div>
+	  <div class="container">
+		<h2><strong>­û¤uªí²{</strong></h2>
+		<img src="images/chat.png" height="130" width="130" style="margin:0px; padding:0;position:relative; top:120px;">
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;µXÅ³ akaªL¤f¾Hµµ´Ñ<p>
+		<p>²¦·~§Ö¼Ö!ÁÂÁÂ¯è¯è·íªì§ä§Ú·í°õ±K¡A±q§A¨­¤W¾Ç¨ì«Ü¦h°µ¨Æªº¤èªk¡A¦b§Ú·íÀçªøªº®É­Ô¤]µ¹§Ú«Ü¦h±Òµo¸ò«ØÄ³¡C
+		¤]ÁÂÁÂ§A¨¯­Wªº¾á°_¤j¶¤ªøªº­«³d¡C¯¬§A¥¼¨Ó¤@¤Á¶¶§Q¡I</p>
+		<br>
+		<img src="images/chat.png" height="130" width="130" style="margin:0px; padding:0;position:relative; top:120px;">
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;·R§Aªº¨à¤l£¡£º<p>
+		<p>¤ı¦t¯è¤j¤­­nÄ~Äò§ä§Ú­Ì¦Y±ßÀ\³á¡C¼Y·R§A¤F§â©Ş<3¡]·F¡A¼Ó¤W³o¬O½Ö¡A§â©Ş¬O§Ú¦b¥sªº£°¡^§â©Ş©µ²¦§Ö¼Ö¡A«Ü·PÁÂ
+		³o¤@¦~±zÄ@·N¤À¨É±z¦b³Ğ¥@¬ö¤@¥bªº©~©Ò¨Ñ§Ú¥Í¦s¡A§Ú¬O¯uªº«Ü¬Ã±¤ÁÙ¯à¸ò§A­Ì¤@°_ª±­Aªº¤é¤l¡A¦n·R¦n·R§A­Ì¡A¯u¤ßÄ±±o
+		§A­Ì¬O§Ú³o½ú¤l¥æ¨ì³Ì¦nªºªB¤Í¤F¡A¦n§Æ±æ®É´N°±¦b³o¤@¦~¡]¦ı¬O¨S¦³³o¨Ç¦Ò¸Õ¡^¡C¦n°Õ¡A·P©Êªº¸Ü¤£¦h»¡¡A¤Ï¥¿§Ú¥­±`		¤]»¡±o°÷¦h¥B±z¨Ã«D­nÂ÷¶}¡A¦ı§Ú­Ì¥ı¬Û¬ù²¦·~¤§«á¨C¦~¦Ü¤Ö­n¬ù­Ó5¦¸¸ò¤j®a¨£­±²á¤Ñ¥´§¾²áÄ³ÃD¡I</p>
+		<br>
+		<img src="images/chat.png" height="130" width="130" style="margin:0px; padding:0;position:relative; top:120px;">
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ÜbÕæ<p>
+		<p>²¦·~§Ö¼Ö!ÁÂÁÂ§A¬O§Úªº±K«ÇªÑªÑªø¡A¨º®É­Ô¤~¸ò§A¤ñ¸û¼ô¡AÄ±±o§A«Ü¦³¤~«Ü·|»â¾É¾ã­Ó¹Î¶¤¡A¦b±a°²¤éÀçªº®É­Ô§ó
+		±q§A¨­¤W¾Ç¨ì«Ü¦h°µ¨Æªº¤èªk¡A¯à©M§A¤@°_¦@¨Æ«Ü¶}¤ß~ §Æ±æ¤§«á¤@¤Á¨Æ¨Æ¶¶¤ß~<p>
+		<br>
+		<img src="images/chat.png" height="130" width="130" style="margin:0px; padding:0;position:relative; top:120px;">
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¨Ì¼ä<p>
+		<p>¶}©lÅÜ¼ô¬O¦bªü¨½Àçªº®É­Ô¡AÁÙ¦³´Á¥½ªÀ¤j¤@°_¦b¥x¹FÀ]¦a¤U«Ç½m heart shaker¡A¨º®É­ÔÄ±±o¥i¥H¦³³o¼Ëªº¤@¸s¤H¤@
+		°_§Ö¼Ö¨ì§Ñ°O®É¶¡¡A¯º¨ì¨{¤lµh¯u¦n¡A¤~¯u¥¿ªº·P¨ü¨ì©Ò¿×¡u¦P·Å¼h¡v¡A¦b©Ğ¦a²£¤]«Ü¸n¡A´Á¥½³ø§i¥[ªo¡IÁÈ¤j¿ú³á¡C</p>
+		<br>
+		<img src="images/chat.png" height="130" width="130" style="margin:0px; padding:0;position:relative; top:120px;">
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;§±<p>
+		<p>ÁÂÁÂ§A§ä§Ú·í½Òµ{ªÑªø¡AÄ±±o§A¬O­Ó¯à©}¯à¦ùªº¤H¡A«Ü¦³±ø²z¤]«Ü·|ºtÀ¸XD¯¬§A¤@¸ô¶¶¹E</p>
+		<br>
+		<img src="images/chat.png" height="130" width="130" style="margin:0px; padding:0;position:relative; top:120px;">
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¬v¬v<p>
+		<p>²¦·~§Ö¼Ö~ÁÂÁÂ§A¦b°²¤éÀçªº®É­Ô¿ï¾Ü¤F§¹¥ş¨S¼v±aÀç¶¤¸gÅçªº§ÚÁÙ¦³¤§«e­ì³Ğ¶gªº±K«ÇªÑÁÙ¦³¤j¶¤ªø><¡A§A¬O¤@­Ó«Ü»Å
+		ªº¤H¡AÀqÀq¦a±q§A¨­¤W¾Ç¨ì¤F«Ü¦h¨ÆÁÙ¦³Á¿¸Üªº¤èªk¡C¯¬§A¥H«á¦b¹q¤l©Ò¯à°÷¶¶¶¶§Q§Q~</p>
+		<br>
+		<img src="images/chat.png" height="130" width="130" style="margin:0px; padding:0;position:relative; top:120px;">
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;°Î¦W<p>
+		<p>¾ã­Ó­ì¤å19¤j·§³Ì¥ı·Q·PÁÂªº¤H´N¬O§A¤F¡A¦]¬°§A¦b§÷®Æ¨tªºªÀ¹Î¤¶²Ğ®É¶¡¬ïªº«Ü¹³­n¸õ²{¥N»R¡AµM«á·Ê·Ê¤£µ´¤f±ø«Ü¦n
+		ªº¤¶²Ğ­ì¤å§Ú´N²ö¦W¨ä§®³Q§l¤Ş¤F¡CÁöµM¥[¤J¤§«á¨S¦³©M§A¦³ÅÜ¤Ó¼ôªº¾÷·|¡A©¯¦nÁÙ¦³ªÀ¤jªº¤@¤ä»RÀ±¸É¤F³o­Ó¿ò¾Ñ¡CÁÂÁÂ
+		§AÅı§Ú¾Ö¦³¨â¦~«Ü´Îªº¤j¾Ç¥Í¬¡<3</p>
+	  </div>
     </div>
 	
     <div class="footer">
       <div class="container">
-        <p>&copy; Contact us</p>
+        <p style="font-size:25px;"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact us&nbsp;&nbsp;</strong></p>
+      </div>
+	  <div class="container">
+		<a href="https://www.facebook.com/groups/227482207720310/"><img id="contactUs" src="images/contact.png" height="50"width="50"></a>
       </div>
     </div>
   </body>
