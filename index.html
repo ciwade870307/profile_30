@@ -47,7 +47,155 @@
                 $("#products img").fadeOut(400,function(){
                     $("#products img").attr("src","images/header_"+n+".png")
                     $("#products img").fadeIn()
+                })<!DOCTYPE html>
+
+<html>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,100' rel='stylesheet' type='text/css'>
+	<link href="style.css" type="text/css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>	
+	<script type="text/javascript">
+		$(function() {
+			$(window).scroll(function() {
+				if ($(this).scrollTop() > 650)  {          /* 要滑動到選單的距離 */
+				$('.nav').addClass('navFixed');   /* 幫選單加上固定效果 */
+				} else {
+				$('.nav').removeClass('navFixed'); /* 移除選單固定效果 */
+				}
+			});
+		});
+		
+	</script>
+	
+	<script>
+        $(document).ready(function(){
+            for(i=0;i<3;i++){
+                $("#menu img:eq("+i+")").click({id:i},function(e){
+                    n=e.data.id
+                    change()
+                    clearInterval(clock)
+                    clock=setInterval(auto,3500)
                 })
+            }
+            n=0
+            clock=setInterval(auto,3500)
+            $("#products img").mouseover(function(){
+                clearInterval(clock)
+            })
+            $("#products img").mouseout(function(){
+                clock=setInterval(auto,3500)
+            })
+            function auto(){
+                n++
+                if(n>2){
+                    n=0
+                }
+                change()
+            }
+            function change(){
+                $("#products img").fadeOut(400,function(){
+                    $("#products img").attr("src","images/header_"+n+".png")
+                    $("#products img").fadeIn()
+                })
+                $("#products").css("background-image","url(images/images/header_"+n+".png)")
+                $("#menu img").attr("src","images/point_white.png")
+                $("#menu img:eq("+n+")").attr("src","images/point_gray.png")
+            }
+        })
+    </script>
+	
+  </head>
+  <body>
+	
+	
+	<div id=all>
+		<div id=products><img src="images/header_0.png" width=100% ></div>
+		
+	</div>
+	<!--
+	<div class="header">
+      <div class="container">
+      </div>
+    </div>
+	-->
+    <div class="nav">
+      <div class="container">
+        <ul>
+          <li><a href="index.html">員工簡介</a></li><li><a href="index_photo.html">員工旅遊行程</a></li><li><a href="index_talk.html">公司陣容</a></li>
+        </ul>
+      </div>
+    </div>
+	
+	<div><div id=menu style="width:50%"><img src="images/point_gray.png"><img src="images/point_white.png"><img src="images/point_white.png"></div>
+	
+    <div class="main">
+      <div class="container">
+		<h2><strong>公司職員簡介</strong></h2>
+        <img id="bighead" src="images/head.png" height="600"width="600">
+        <p><strong>姓名 :</strong> 彭毓之</p>
+        <p><strong>職稱 :</strong> 原文股長
+假日營早操股長
+冬令營公隊股長</p>
+		<p><strong>入社年份 :</strong> 2015-2017
+        <p><strong>特殊表現 :</strong>原文大聲公紀錄保持人
+素食主義倡議與實踐者
+【腰瘦正】健康瘦身錠廣告代言人
+
+林立玄緋聞男友
+
+貌似原文安潔莉娜</p>
+      </div>
+	  <div class="container">
+		<h2><strong>員工表現</strong></h2>
+		<img src="images/chat.png" height="130" width="130" style="margin:0px; padding:0;position:relative; top:120px;">
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;雅淳<p>
+		<p>之之
+你大四的這年真的好少遇到。不過你應該過得不錯，還變瘦變漂亮，真的崇拜你。沒想到你也要畢業了，我會很想你的，希望你一切順利。</p>
+		<br>
+		<img src="images/chat.png" height="130" width="130" style="margin:0px; padding:0;position:relative; top:120px;">
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ㄐㄩ<p>
+		<p>
+寶貝愛之殿下♥
+如果原文父親是王宇航的話，你應該就是我的原文媽媽ㄌ，或者更精確地說，不只原文，大學生涯裡走過太多你走過的路，也從你身上得到很多東西，知識也好、為人處事也好，能在大學交到你這麼好的一個朋友真的是我上輩子有燒一些香。
+這一年，我們雖然不常見面，但看到妳的近況不錯，我也替妳高興，未來的路還很長，希望未來的妳一樣勇敢、一樣堅強、也一樣漂亮，畢業快樂♥</p>
+		<br>
+		<img src="images/chat.png" height="130" width="130" style="margin:0px; padding:0;position:relative; top:120px;">
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可綠<p>
+		<p>好久沒遇到你了想你!阿之是一個很熱情的人,很喜歡跟你聊天!跟你聊天總是能讓我獲得一些我不曾想過的觀點,很有收穫!看你身在粉紅泡泡顯露出小女人的一面實在是件很有趣的事哈哈!祝你一切順利,畢業快樂!<p>
+		<br>
+		<img src="images/chat.png" height="130" width="130" style="margin:0px; padding:0;position:relative; top:120px;">
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;依潔<p>
+		<p>好久沒遇到你了，我記得你做事都很有活力很認真，希望你之後也一直是活力阿之，畢業快樂！</p>
+<br>
+		<img src="images/chat.png" height="130" width="130" style="margin:0px; padding:0;position:relative; top:120px;">
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;硬魚<p>
+		<p>從大一就一直覺得你是個很厲害的人物，大學接了好多外務然後都用得有聲有色，還有就是很有意志力！(尤其減肥的部分)(雖然有點吵哈哈)，總之就是畢業快樂拉你會幸福的</p>
+<br>
+		<img src="images/chat.png" height="130" width="130" style="margin:0px; padding:0;position:relative; top:120px;">
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;筠宣<p>
+		<p>阿之，謝謝妳好多好多。我的第一個活動就是早操，遇見原文最吵的妳們兩個，真的很適合早操這個職業（？
+我一直都覺得，天那這個姐姐怎麼可以一邊這麼吵一邊這麼漂亮。認識妳更久之後，覺得妳是很認真生活，也很關心社會的一個人，而且寫的文章總是讓我很有感覺，看妳說這學期通勤之後和清華的交流更少了，但我還是想給妳祝福，需要都可以再來找我們的！妳說在備考時期，不知道是甚麼考試，所以就祝妳考試順利跟畢業快樂～</p>
+<br>
+		<img src="images/chat.png" height="130" width="130" style="margin:0px; padding:0;position:relative; top:120px;">
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;斈恩<p>
+		<p>阿之阿之<3妳大四這年真的好少碰到妳，甚至也很少看到妳的臉書或IG動態，但我沒有忘記妳唷！剛進原文的時候，妳是我很大的定心丸(因為我真的很害怕自己沒辦法帶公隊)。現在的你應該過得很好！而且看到你的感情生活感覺很美滿我是真的替你開心<3希望未來的你也能一直順心而幸福，畢業快樂阿之！</p>
+<br>
+
+			  </div>
+    </div>
+	
+    <div class="footer">
+      <div class="container">
+        <p style="font-size:25px;"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact us&nbsp;&nbsp;</strong></p>
+      </div>
+	  <div class="container">
+		<a href="https://www.facebook.com/groups/227482207720310/"><img id="contactUs" src="images/contact.png" height="50"width="50"></a>
+      </div>
+    </div>
+  </body>
+</html>
+
                 $("#products").css("background-image","url(images/images/header_"+n+".png)")
                 $("#menu img").attr("src","images/point_white.png")
                 $("#menu img:eq("+n+")").attr("src","images/point_gray.png")
